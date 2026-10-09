@@ -1,0 +1,134 @@
+.tips-section {
+  background-color: #FFFFFF;
+  padding: 68px 0 72px;
+}
+
+.tips-carousel-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.tips-arrow-btn {
+  position: absolute;
+  z-index: 10;
+}
+
+.tips-arrow-btn.left-arrow {
+  left: -24px;
+}
+
+.tips-arrow-btn.right-arrow {
+  right: -24px;
+}
+
+.tips-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.tip-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  cursor: pointer;
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+}
+
+.tip-card.is-elevated {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border-light);
+  transform: translateY(-4px);
+}
+
+.tip-card.is-elevated:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.tip-card-img-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.tip-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tip-card:hover .tip-card-img {
+  transform: scale(1.06);
+}
+
+.tip-card-content {
+  padding: 20px 16px 24px;
+}
+
+.tip-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  line-height: 1.35;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color var(--transition-fast);
+}
+
+.tip-card:hover .tip-card-title {
+  color: var(--color-primary);
+}
+
+.tip-card-date {
+  font-size: 14px;
+  color: var(--color-text-gray);
+  font-weight: 400;
+}
+
+.tips-pagination-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .tips-arrow-btn.left-arrow {
+    left: 4px;
+  }
+  .tips-arrow-btn.right-arrow {
+    right: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .tips-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tip-card:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .tips-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .tip-card:not(:first-child) {
+    display: none;
+  }
+}

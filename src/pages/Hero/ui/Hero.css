@@ -1,0 +1,216 @@
+.hero-section {
+  background-color: var(--color-bg-cream);
+  padding-top: 104px;
+  padding-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 0 40px;
+}
+
+.hero-dots {
+  margin-left: 360px;
+}
+
+.hero-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-carousel-viewport {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero-active-slide {
+  flex: 1;
+  max-width: 934px;
+  height: 560px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  transition: background-image 0.5s ease-in-out;
+}
+
+.hero-neighbor-slide {
+  width: 220px;
+  height: 560px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 4px;
+  filter: brightness(0.9);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.hero-neighbor-slide:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+/* Floating White Frosted Card on Left */
+.hero-content-card {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 48px 48px 44px;
+  max-width: 480px;
+  border-radius: 4px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-title {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text-dark);
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-btn {
+  width: 100%;
+  height: 54px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Bottom-Right Product Highlight Card */
+.hero-product-card {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 24px 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hero-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.hero-product-card:hover .hero-product-arrow-btn {
+  transform: translateX(4px);
+  color: var(--color-primary);
+}
+
+.hero-product-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.hero-product-desc {
+  font-size: 14px;
+  color: var(--color-text-gray);
+  margin: 4px 0 10px;
+}
+
+.hero-product-price {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.hero-product-arrow-btn {
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .hero-dots {
+    margin-left: 0;
+  }
+  .hero-neighbor-slide {
+    width: 120px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-neighbor-slide {
+    display: none;
+  }
+  .hero-active-slide {
+    max-width: 100%;
+    height: 520px;
+  }
+  .hero-title {
+    font-size: 40px;
+  }
+  .hero-content-card {
+    padding: 36px;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-controls-container {
+    padding: 0 20px;
+  }
+  .hero-active-slide {
+    height: auto;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-content-card {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    margin: 20px;
+  }
+  .hero-product-card {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+    align-self: flex-start;
+  }
+}
